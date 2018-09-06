@@ -3,11 +3,15 @@
     "email": "support@dyspatch.io",
     "url": "https://github.com/getdyspatch/dyspatch-javascript"
   },
-  "keywords": ["dyspatch", "email", "template"],
+  "keywords": [
+    "dyspatch",
+    "email",
+    "template"
+  ],
   "devDependencies": {
     "expect.js": "~0.3.1",
-    "sinon": "1.17.3",
-    "mocha": "~2.3.4"
+    "mocha": "^5.2.0",
+    "sinon": "1.17.3"
   },
   "dependencies": {
     "superagent": "^3.8.3"
