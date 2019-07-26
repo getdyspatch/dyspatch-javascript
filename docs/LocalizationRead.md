@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | An opaque, unique identifier for a localization | [optional] 
-**language** | **String** | A language identifier comprised of a language and a country identifier.  See [supported languages](https://docs.dyspatch.io/localization/supported_languages/).  | [optional] 
-**url** | **String** | The API url for a specific localization | [optional] 
-**template** | **String** | An opaque, unique identifier for a template | [optional] 
+**id** | [**LocalizationId**](LocalizationId.md) |  | [optional] 
+**language** | [**LanguageId**](LanguageId.md) |  | [optional] 
+**url** | [**LocalizationUrl**](LocalizationUrl.md) |  | [optional] 
+**template** | [**TemplateId**](TemplateId.md) |  | [optional] 
 **compiled** | [**CompiledRead**](CompiledRead.md) |  | [optional] 
-**createdAt** | **Date** | The time of initial creation | [optional] 
-**updatedAt** | **Date** | The time of last update | [optional] 
-**name** | **String** | The user-specified name of a localization | [optional] 
+**createdAt** | [**CreatedAt**](CreatedAt.md) |  | [optional] 
+**updatedAt** | [**UpdatedAt**](UpdatedAt.md) |  | [optional] 
+**name** | [**LocalizationName**](LocalizationName.md) |  | [optional] 
 
 
