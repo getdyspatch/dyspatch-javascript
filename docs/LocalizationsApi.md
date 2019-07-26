@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="localizationsLocalizationIdGet"></a>
 # **localizationsLocalizationIdGet**
-> LocalizationRead localizationsLocalizationIdGet(localizationId, accept)
+> LocalizationRead localizationsLocalizationIdGet(localizationId, targetLanguage, accept)
 
 Get Localization Object by ID
 
@@ -30,7 +30,9 @@ var apiInstance = new DyspatchClient.LocalizationsApi();
 
 var localizationId = "localizationId_example"; // String | A localization ID
 
-var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2018.08\", set the value to \"application/vnd.dyspatch.2018.08+json\"
+var targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
+
+var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.03\", set the value to \"application/vnd.dyspatch.2019.03+json\"
 
 
 var callback = function(error, data, response) {
@@ -40,7 +42,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.localizationsLocalizationIdGet(localizationId, accept, callback);
+apiInstance.localizationsLocalizationIdGet(localizationId, targetLanguage, accept, callback);
 ```
 
 ### Parameters
@@ -48,7 +50,8 @@ apiInstance.localizationsLocalizationIdGet(localizationId, accept, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **localizationId** | **String**| A localization ID | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2018.08\&quot;, set the value to \&quot;application/vnd.dyspatch.2018.08+json\&quot; | 
+ **targetLanguage** | **String**| The type of templating language to compile as. Should only be used for visual templates. | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.03\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.03+json\&quot; | 
 
 ### Return type
 
@@ -61,5 +64,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2018.08+json
+ - **Accept**: application/vnd.dyspatch.2019.03+json
 

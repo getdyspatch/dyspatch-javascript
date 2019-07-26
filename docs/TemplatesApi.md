@@ -29,7 +29,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new DyspatchClient.TemplatesApi();
 
-var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2018.08\", set the value to \"application/vnd.dyspatch.2018.08+json\"
+var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.03\", set the value to \"application/vnd.dyspatch.2019.03+json\"
 
 var opts = { 
   'cursor': "cursor_example" // String | A cursor value used to retrieve a specific page from a paginated result set.
@@ -49,7 +49,7 @@ apiInstance.templatesGet(accept, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2018.08\&quot;, set the value to \&quot;application/vnd.dyspatch.2018.08+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.03\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.03+json\&quot; | 
  **cursor** | **String**| A cursor value used to retrieve a specific page from a paginated result set. | [optional] 
 
 ### Return type
@@ -63,11 +63,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2018.08+json
+ - **Accept**: application/vnd.dyspatch.2019.03+json
 
 <a name="templatesTemplateIdGet"></a>
 # **templatesTemplateIdGet**
-> TemplateRead templatesTemplateIdGet(templateId, accept)
+> TemplateRead templatesTemplateIdGet(templateId, targetLanguage, accept)
 
 Get Template by ID
 
@@ -88,7 +88,9 @@ var apiInstance = new DyspatchClient.TemplatesApi();
 
 var templateId = "templateId_example"; // String | A template ID
 
-var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2018.08\", set the value to \"application/vnd.dyspatch.2018.08+json\"
+var targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
+
+var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.03\", set the value to \"application/vnd.dyspatch.2019.03+json\"
 
 
 var callback = function(error, data, response) {
@@ -98,7 +100,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.templatesTemplateIdGet(templateId, accept, callback);
+apiInstance.templatesTemplateIdGet(templateId, targetLanguage, accept, callback);
 ```
 
 ### Parameters
@@ -106,7 +108,8 @@ apiInstance.templatesTemplateIdGet(templateId, accept, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**| A template ID | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2018.08\&quot;, set the value to \&quot;application/vnd.dyspatch.2018.08+json\&quot; | 
+ **targetLanguage** | **String**| The type of templating language to compile as. Should only be used for visual templates. | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.03\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.03+json\&quot; | 
 
 ### Return type
 
@@ -119,5 +122,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2018.08+json
+ - **Accept**: application/vnd.dyspatch.2019.03+json
 
