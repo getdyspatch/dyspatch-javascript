@@ -26,7 +26,7 @@
     if (!root.DyspatchClient) {
       root.DyspatchClient = {};
     }
-    root.DyspatchClient.LanguageId = factory(root.DyspatchClient.ApiClient);
+    root.DyspatchClient.DraftName = factory(root.DyspatchClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -35,15 +35,15 @@
 
 
   /**
-   * The LanguageId model module.
-   * @module dyspatch-client/LanguageId
+   * The DraftName model module.
+   * @module dyspatch-client/DraftName
    * @version 3.0.0
    */
 
   /**
-   * Constructs a new <code>LanguageId</code>.
-   * A language identifier comprised of a language and a country identifier. See [supported languages](https://docs.dyspatch.io/localization/supported_languages/). 
-   * @alias module:dyspatch-client/LanguageId
+   * Constructs a new <code>DraftName</code>.
+   * The name of a draft
+   * @alias module:dyspatch-client/DraftName
    * @class
    */
   var exports = function() {
@@ -52,11 +52,11 @@
   };
 
   /**
-   * Constructs a <code>LanguageId</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DraftName</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:dyspatch-client/LanguageId} obj Optional instance to populate.
-   * @return {module:dyspatch-client/LanguageId} The populated <code>LanguageId</code> instance.
+   * @param {module:dyspatch-client/DraftName} obj Optional instance to populate.
+   * @return {module:dyspatch-client/DraftName} The populated <code>DraftName</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {

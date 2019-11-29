@@ -26,7 +26,7 @@
     if (!root.DyspatchClient) {
       root.DyspatchClient = {};
     }
-    root.DyspatchClient.LocalizationMetaRead = factory(root.DyspatchClient.ApiClient);
+    root.DyspatchClient.DraftMetaRead = factory(root.DyspatchClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -35,14 +35,14 @@
 
 
   /**
-   * The LocalizationMetaRead model module.
-   * @module dyspatch-client/LocalizationMetaRead
+   * The DraftMetaRead model module.
+   * @module dyspatch-client/DraftMetaRead
    * @version 3.0.0
    */
 
   /**
-   * Constructs a new <code>LocalizationMetaRead</code>.
-   * @alias module:dyspatch-client/LocalizationMetaRead
+   * Constructs a new <code>DraftMetaRead</code>.
+   * @alias module:dyspatch-client/DraftMetaRead
    * @class
    */
   var exports = function() {
@@ -53,14 +53,16 @@
 
 
 
+
+
   };
 
   /**
-   * Constructs a <code>LocalizationMetaRead</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DraftMetaRead</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:dyspatch-client/LocalizationMetaRead} obj Optional instance to populate.
-   * @return {module:dyspatch-client/LocalizationMetaRead} The populated <code>LocalizationMetaRead</code> instance.
+   * @param {module:dyspatch-client/DraftMetaRead} obj Optional instance to populate.
+   * @return {module:dyspatch-client/DraftMetaRead} The populated <code>DraftMetaRead</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -69,47 +71,63 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('language')) {
-        obj['language'] = ApiClient.convertToType(data['language'], 'String');
+      if (data.hasOwnProperty('templateId')) {
+        obj['templateId'] = ApiClient.convertToType(data['templateId'], 'String');
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
       if (data.hasOwnProperty('url')) {
         obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
-      if (data.hasOwnProperty('draft')) {
-        obj['draft'] = ApiClient.convertToType(data['draft'], 'String');
+      if (data.hasOwnProperty('createdAt')) {
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+      }
+      if (data.hasOwnProperty('updatedAt')) {
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
       }
     }
     return obj;
   }
 
   /**
-   * An opaque, unique identifier for a localization
+   * An opaque, unique identifier for a draft
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * A language identifier comprised of a language and a country identifier.  See [supported languages](https://docs.dyspatch.io/localization/supported_languages/). 
-   * @member {String} language
+   * An opaque, unique identifier for a template
+   * @member {String} templateId
    */
-  exports.prototype['language'] = undefined;
+  exports.prototype['templateId'] = undefined;
   /**
-   * The user-specified name of a localization
+   * The name of a draft
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * The API url for a specific localization
+   * A description of the draft
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * The API url for a specific draft
    * @member {String} url
    */
   exports.prototype['url'] = undefined;
   /**
-   * An opaque, unique identifier for a draft
-   * @member {String} draft
+   * The time of initial creation
+   * @member {Date} createdAt
    */
-  exports.prototype['draft'] = undefined;
+  exports.prototype['createdAt'] = undefined;
+  /**
+   * The time of last update
+   * @member {Date} updatedAt
+   */
+  exports.prototype['updatedAt'] = undefined;
 
 
 

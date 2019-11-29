@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="templatesGet"></a>
 # **templatesGet**
-> TemplatesRead templatesGet(accept, opts)
+> TemplatesRead templatesGet(opts)
 
 List Templates
 
@@ -29,8 +29,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new DyspatchClient.TemplatesApi();
 
-var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.03\", set the value to \"application/vnd.dyspatch.2019.03+json\"
-
 var opts = { 
   'cursor': "cursor_example" // String | A cursor value used to retrieve a specific page from a paginated result set.
 };
@@ -42,14 +40,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.templatesGet(accept, opts, callback);
+apiInstance.templatesGet(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.03\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.03+json\&quot; | 
  **cursor** | **String**| A cursor value used to retrieve a specific page from a paginated result set. | [optional] 
 
 ### Return type
@@ -63,11 +60,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.03+json
+ - **Accept**: application/vnd.dyspatch.2019.10+json
 
 <a name="templatesTemplateIdGet"></a>
 # **templatesTemplateIdGet**
-> TemplateRead templatesTemplateIdGet(templateId, targetLanguage, accept)
+> TemplateRead templatesTemplateIdGet(templateId, targetLanguage)
 
 Get Template by ID
 
@@ -90,8 +87,6 @@ var templateId = "templateId_example"; // String | A template ID
 
 var targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
 
-var accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.03\", set the value to \"application/vnd.dyspatch.2019.03+json\"
-
 
 var callback = function(error, data, response) {
   if (error) {
@@ -100,7 +95,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.templatesTemplateIdGet(templateId, targetLanguage, accept, callback);
+apiInstance.templatesTemplateIdGet(templateId, targetLanguage, callback);
 ```
 
 ### Parameters
@@ -109,7 +104,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**| A template ID | 
  **targetLanguage** | **String**| The type of templating language to compile as. Should only be used for visual templates. | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.03\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.03+json\&quot; | 
 
 ### Return type
 
@@ -122,5 +116,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.03+json
+ - **Accept**: application/vnd.dyspatch.2019.10+json
 
