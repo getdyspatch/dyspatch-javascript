@@ -17,55 +17,72 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'dyspatch-client/DraftMetaRead'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./DraftMetaRead'));
   } else {
     // Browser globals (root is window)
     if (!root.DyspatchClient) {
       root.DyspatchClient = {};
     }
-    root.DyspatchClient.LanguageId = factory(root.DyspatchClient.ApiClient);
+    root.DyspatchClient.DraftsRead = factory(root.DyspatchClient.ApiClient, root.DyspatchClient.DraftMetaRead);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, DraftMetaRead) {
   'use strict';
 
 
 
 
   /**
-   * The LanguageId model module.
-   * @module dyspatch-client/LanguageId
+   * The DraftsRead model module.
+   * @module dyspatch-client/DraftsRead
    * @version 3.0.0
    */
 
   /**
-   * Constructs a new <code>LanguageId</code>.
-   * A language identifier comprised of a language and a country identifier. See [supported languages](https://docs.dyspatch.io/localization/supported_languages/). 
-   * @alias module:dyspatch-client/LanguageId
+   * Constructs a new <code>DraftsRead</code>.
+   * @alias module:dyspatch-client/DraftsRead
    * @class
    */
   var exports = function() {
     var _this = this;
 
+
+
   };
 
   /**
-   * Constructs a <code>LanguageId</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DraftsRead</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:dyspatch-client/LanguageId} obj Optional instance to populate.
-   * @return {module:dyspatch-client/LanguageId} The populated <code>LanguageId</code> instance.
+   * @param {module:dyspatch-client/DraftsRead} obj Optional instance to populate.
+   * @return {module:dyspatch-client/DraftsRead} The populated <code>DraftsRead</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('cursor')) {
+        obj['cursor'] = ApiClient.convertToType(data['cursor'], Object);
+      }
+      if (data.hasOwnProperty('data')) {
+        obj['data'] = ApiClient.convertToType(data['data'], [DraftMetaRead]);
+      }
     }
     return obj;
   }
 
+  /**
+   * Information about paginated results
+   * @member {Object} cursor
+   */
+  exports.prototype['cursor'] = undefined;
+  /**
+   * A list of draft metadata objects
+   * @member {Array.<module:dyspatch-client/DraftMetaRead>} data
+   */
+  exports.prototype['data'] = undefined;
 
 
 

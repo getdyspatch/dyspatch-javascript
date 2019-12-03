@@ -17,32 +17,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'dyspatch-client/LocalizationMetaRead'], factory);
+    define(['ApiClient', 'dyspatch-client/CompiledRead', 'dyspatch-client/LocalizationMetaRead'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizationMetaRead'));
+    module.exports = factory(require('../ApiClient'), require('./CompiledRead'), require('./LocalizationMetaRead'));
   } else {
     // Browser globals (root is window)
     if (!root.DyspatchClient) {
       root.DyspatchClient = {};
     }
-    root.DyspatchClient.TemplateMetaRead = factory(root.DyspatchClient.ApiClient, root.DyspatchClient.LocalizationMetaRead);
+    root.DyspatchClient.DraftRead = factory(root.DyspatchClient.ApiClient, root.DyspatchClient.CompiledRead, root.DyspatchClient.LocalizationMetaRead);
   }
-}(this, function(ApiClient, LocalizationMetaRead) {
+}(this, function(ApiClient, CompiledRead, LocalizationMetaRead) {
   'use strict';
 
 
 
 
   /**
-   * The TemplateMetaRead model module.
-   * @module dyspatch-client/TemplateMetaRead
+   * The DraftRead model module.
+   * @module dyspatch-client/DraftRead
    * @version 3.0.0
    */
 
   /**
-   * Constructs a new <code>TemplateMetaRead</code>.
-   * @alias module:dyspatch-client/TemplateMetaRead
+   * Constructs a new <code>DraftRead</code>.
+   * @alias module:dyspatch-client/DraftRead
    * @class
    */
   var exports = function() {
@@ -55,14 +55,15 @@
 
 
 
+
   };
 
   /**
-   * Constructs a <code>TemplateMetaRead</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DraftRead</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:dyspatch-client/TemplateMetaRead} obj Optional instance to populate.
-   * @return {module:dyspatch-client/TemplateMetaRead} The populated <code>TemplateMetaRead</code> instance.
+   * @param {module:dyspatch-client/DraftRead} obj Optional instance to populate.
+   * @return {module:dyspatch-client/DraftRead} The populated <code>DraftRead</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -71,17 +72,17 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
+      if (data.hasOwnProperty('template')) {
+        obj['template'] = ApiClient.convertToType(data['template'], 'String');
+      }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
       if (data.hasOwnProperty('url')) {
         obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
-      if (data.hasOwnProperty('localizations')) {
-        obj['localizations'] = ApiClient.convertToType(data['localizations'], [LocalizationMetaRead]);
+      if (data.hasOwnProperty('compiled')) {
+        obj['compiled'] = CompiledRead.constructFromObject(data['compiled']);
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
@@ -89,35 +90,37 @@
       if (data.hasOwnProperty('updatedAt')) {
         obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
       }
+      if (data.hasOwnProperty('localizations')) {
+        obj['localizations'] = ApiClient.convertToType(data['localizations'], [LocalizationMetaRead]);
+      }
     }
     return obj;
   }
 
   /**
-   * An opaque, unique identifier for a template
+   * An opaque, unique identifier for a draft
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * The name of a template
+   * An opaque, unique identifier for a template
+   * @member {String} template
+   */
+  exports.prototype['template'] = undefined;
+  /**
+   * The name of a draft
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * A description of the template
-   * @member {String} description
-   */
-  exports.prototype['description'] = undefined;
-  /**
-   * The API url for a specific template
+   * The API url for a specific draft
    * @member {String} url
    */
   exports.prototype['url'] = undefined;
   /**
-   * A list of the template's available localization objects
-   * @member {Array.<module:dyspatch-client/LocalizationMetaRead>} localizations
+   * @member {module:dyspatch-client/CompiledRead} compiled
    */
-  exports.prototype['localizations'] = undefined;
+  exports.prototype['compiled'] = undefined;
   /**
    * The time of initial creation
    * @member {Date} createdAt
@@ -128,6 +131,11 @@
    * @member {Date} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
+  /**
+   * A list of the Template's available localizations
+   * @member {Array.<module:dyspatch-client/LocalizationMetaRead>} localizations
+   */
+  exports.prototype['localizations'] = undefined;
 
 
 

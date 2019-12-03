@@ -26,7 +26,7 @@
     if (!root.DyspatchClient) {
       root.DyspatchClient = {};
     }
-    root.DyspatchClient.LanguageId = factory(root.DyspatchClient.ApiClient);
+    root.DyspatchClient.Body = factory(root.DyspatchClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -35,37 +35,44 @@
 
 
   /**
-   * The LanguageId model module.
-   * @module dyspatch-client/LanguageId
+   * The Body model module.
+   * @module dyspatch-client/Body
    * @version 3.0.0
    */
 
   /**
-   * Constructs a new <code>LanguageId</code>.
-   * A language identifier comprised of a language and a country identifier. See [supported languages](https://docs.dyspatch.io/localization/supported_languages/). 
-   * @alias module:dyspatch-client/LanguageId
+   * Constructs a new <code>Body</code>.
+   * @alias module:dyspatch-client/Body
    * @class
    */
   var exports = function() {
     var _this = this;
 
+
   };
 
   /**
-   * Constructs a <code>LanguageId</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Body</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:dyspatch-client/LanguageId} obj Optional instance to populate.
-   * @return {module:dyspatch-client/LanguageId} The populated <code>LanguageId</code> instance.
+   * @param {module:dyspatch-client/Body} obj Optional instance to populate.
+   * @return {module:dyspatch-client/Body} The populated <code>Body</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
     }
     return obj;
   }
 
+  /**
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
 
 
 
