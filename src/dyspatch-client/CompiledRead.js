@@ -37,7 +37,7 @@
   /**
    * The CompiledRead model module.
    * @module dyspatch-client/CompiledRead
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

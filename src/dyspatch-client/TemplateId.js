@@ -37,7 +37,7 @@
   /**
    * The TemplateId model module.
    * @module dyspatch-client/TemplateId
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

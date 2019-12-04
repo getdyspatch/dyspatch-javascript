@@ -37,7 +37,7 @@
   /**
    * The UpdatedAt model module.
    * @module dyspatch-client/UpdatedAt
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

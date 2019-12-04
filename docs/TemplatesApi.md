@@ -30,7 +30,7 @@ Bearer.apiKey = 'YOUR API KEY';
 var apiInstance = new DyspatchClient.TemplatesApi();
 
 var opts = { 
-  'cursor': "cursor_example" // String | A cursor value used to retrieve a specific page from a paginated result set.
+  'cursor': "cursor_example", // String | A cursor value used to retrieve a specific page from a paginated result set.
 };
 
 var callback = function(error, data, response) {

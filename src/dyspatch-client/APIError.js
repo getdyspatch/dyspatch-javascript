@@ -37,7 +37,7 @@
   /**
    * The APIError model module.
    * @module dyspatch-client/APIError
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

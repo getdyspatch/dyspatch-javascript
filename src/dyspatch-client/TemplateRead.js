@@ -37,7 +37,7 @@
   /**
    * The TemplateRead model module.
    * @module dyspatch-client/TemplateRead
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

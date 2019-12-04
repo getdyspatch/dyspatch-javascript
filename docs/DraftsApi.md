@@ -429,6 +429,7 @@ Bearer.apiKey = 'YOUR API KEY';
 var apiInstance = new DyspatchClient.DraftsApi();
 
 var opts = { 
+  'cursor': "cursor_example", // String | A cursor value used to retrieve a specific page from a paginated result set.
   'status': "status_example" // String | Filter the list of drafts by a particular status
 };
 
@@ -446,6 +447,7 @@ apiInstance.draftsGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cursor** | **String**| A cursor value used to retrieve a specific page from a paginated result set. | [optional] 
  **status** | **String**| Filter the list of drafts by a particular status | [optional] 
 
 ### Return type

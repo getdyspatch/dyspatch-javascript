@@ -37,7 +37,7 @@
   /**
    * The DraftName model module.
    * @module dyspatch-client/DraftName
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

@@ -37,7 +37,7 @@
   /**
    * The DraftMetaRead model module.
    * @module dyspatch-client/DraftMetaRead
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

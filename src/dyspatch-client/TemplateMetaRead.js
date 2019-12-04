@@ -37,7 +37,7 @@
   /**
    * The TemplateMetaRead model module.
    * @module dyspatch-client/TemplateMetaRead
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

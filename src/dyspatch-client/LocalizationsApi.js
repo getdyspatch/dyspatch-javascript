@@ -34,7 +34,7 @@
   /**
    * Localizations service.
    * @module dyspatch-client/LocalizationsApi
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**

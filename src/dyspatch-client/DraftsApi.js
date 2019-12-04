@@ -34,7 +34,7 @@
   /**
    * Drafts service.
    * @module dyspatch-client/DraftsApi
-   * @version 3.0.0
+   * @version 3.0.1
    */
 
   /**
@@ -436,6 +436,7 @@
      * List Drafts
      * Gets a list of all drafts for your oranization. Up to 25 results returned before results are paginated.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor A cursor value used to retrieve a specific page from a paginated result set.
      * @param {module:dyspatch-client/String} opts.status Filter the list of drafts by a particular status
      * @param {module:dyspatch-client/DraftsApi~draftsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:dyspatch-client/DraftsRead}
@@ -448,6 +449,7 @@
       var pathParams = {
       };
       var queryParams = {
+        'cursor': opts['cursor'],
         'status': opts['status'],
       };
       var collectionQueryParams = {
