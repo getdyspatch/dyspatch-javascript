@@ -43,11 +43,10 @@ Finally, switch to the directory you want to use your dyspatch-client from, and 
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 ```
 
-You should now be able to `require('dyspatch-client')` in javascript files from the directory you ran the last 
-command above from.
+You should now be able to `require('dyspatch-client')` in javascript files from the directory you ran the last command above from.
 
 #### git
-#
+
 If the library is hosted at a git repository, e.g.
 https://github.com/GIT_USER_ID/GIT_REPO_ID
 then install it via:
@@ -172,10 +171,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-
 ### Bearer
 
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
-
