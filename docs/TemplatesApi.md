@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 Get Template by ID
 
-Gets a template object with the matching ID. If the template has published content the \&quot;compiled\&quot; field will contain the template .
+Gets a template object with the matching ID. If the template has published content the \"compiled\" field will contain the template .
 
 ### Example
 ```javascript

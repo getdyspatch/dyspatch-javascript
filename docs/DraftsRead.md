@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cursor** | **Object** | Information about paginated results | [optional] 
+**cursor** | [**Cursor**](Cursor.md) |  | [optional] 
 **data** | [**[DraftMetaRead]**](DraftMetaRead.md) | A list of draft metadata objects | [optional] 
 
 
