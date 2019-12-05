@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Get Draft by ID
 
-Gets a draft object with the matching ID. The \&quot;compiled\&quot; field will contain the unlocalized default template object.
+Gets a draft object with the matching ID. The \"compiled\" field will contain the unlocalized default template object.
 
 ### Example
 ```javascript
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 Get Localization Keys
 
-Returns the list of values that need to be translated for the draft. Set the &#x60;Accept&#x60; header to &#x60;application/vnd.dyspatch.2019.10+json&#x60; to get a JSON object, or &#x60;text/vnd.dyspatch.2019.10+x-gettext-translation&#x60; to get the POT file.
+Returns the list of values that need to be translated for the draft. Set the `Accept` header to `application/vnd.dyspatch.2019.10+json` to get a JSON object, or `text/vnd.dyspatch.2019.10+x-gettext-translation` to get the POT file.
 
 ### Example
 ```javascript
@@ -112,7 +112,7 @@ apiInstance.draftsDraftIdLocalizationKeysGet(draftId, , opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot;. | [optional] 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\". | [optional] 
 
 ### Return type
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 Remove a Localization
 
-Deletes the localization with the given &#x60;languageId&#x60; if it exists.
+Deletes the localization with the given `languageId` if it exists.
 
 ### Example
 ```javascript
@@ -242,7 +242,7 @@ null (empty response body)
 
 Create or Update a Localization
 
-Inserts a localization or sets the name on an existing localization that already uses the &#x60;languageId&#x60;.
+Inserts a localization or sets the name on an existing localization that already uses the `languageId`.
 
 ### Example
 ```javascript
@@ -301,7 +301,7 @@ null (empty response body)
 
 Set Translations for Language
 
-Completely replaces any existing translations for the given language with those provided in request body. Variables embedded in keys or values are expected to be in the format &#x60;%(my_variable)s&#x60; and will automatically convert to the correct Dyspatch format depending on the type of template. Accepts key/value pairs in JSON format or in gettext PO file format. For JSON set &#x60;Content-Type&#x60; header to &#x60;application/json&#x60;. For gettext PO format set &#x60;Content-Type&#x60; header to &#x60;text/x-gettext-translation&#x60;.
+Completely replaces any existing translations for the given language with those provided in request body. Variables embedded in keys or values are expected to be in the format `%(my_variable)s` and will automatically convert to the correct Dyspatch format depending on the type of template. Accepts key/value pairs in JSON format or in gettext PO file format. For JSON set `Content-Type` header to `application/json`. For gettext PO format set `Content-Type` header to `text/x-gettext-translation`.
 
 ### Example
 ```javascript
@@ -429,6 +429,7 @@ Bearer.apiKey = 'YOUR API KEY';
 var apiInstance = new DyspatchClient.DraftsApi();
 
 var opts = { 
+  'cursor': "cursor_example", // String | A cursor value used to retrieve a specific page from a paginated result set.
   'status': "status_example" // String | Filter the list of drafts by a particular status
 };
 
@@ -446,6 +447,7 @@ apiInstance.draftsGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **cursor** | **String**| A cursor value used to retrieve a specific page from a paginated result set. | [optional] 
  **status** | **String**| Filter the list of drafts by a particular status | [optional] 
 
 ### Return type

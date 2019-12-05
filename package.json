@@ -1,17 +1,18 @@
 {
   "name": "dyspatch-client",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "The Dyspatch API is based on the REST paradigm, and features resource based URLs with standard HTTP response codes to indicate errors. We use standard HTTP authentication and request verbs, and all responses are JSON formatted. For more information, please visit https://docs.dyspatch.io",
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --recursive"
+    "test": "mocha --recursive"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "superagent": "3.5.2"
+    "superagent": "3.7.0",
+    "querystring": "0.2.0"
   },
   "devDependencies": {
     "mocha": "~2.3.4",
