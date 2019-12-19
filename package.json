@@ -1,22 +1,46 @@
 {
   "name": "dyspatch-client",
-  "version": "3.0.1",
-  "description": "The Dyspatch API is based on the REST paradigm, and features resource based URLs with standard HTTP response codes to indicate errors. We use standard HTTP authentication and request verbs, and all responses are JSON formatted. For more information, please visit https://docs.dyspatch.io",
+  "version": "4.0.0",
+  "description": "_IntroductionThe_Dyspatch_API_is_based_on_the_REST_paradigm_and_features_resource_based_URLs_with_standard_HTTP_response_codes_to_indicate_errors__We_use_standard_HTTP_authentication_and_request_verbs_and_all_responses_are_JSON_formatted__See_our__Implementation_Guide_https__docs_dyspatch_io_development_implementing_dyspatch__for_more_details_on_how_to_implement_Dyspatch__API_Client_Libraries_Dyspatch_provides_API_Clients_for_popular_languages_and_web_frameworks____Java_https__github_com_getdyspatch_dyspatch_java____Javascript_https__github_com_getdyspatch_dyspatch_javascript____Python_https__github_com_getdyspatch_dyspatch_python____C_https__github_com_getdyspatch_dyspatch_dotnet____Go_https__github_com_getdyspatch_dyspatch_golang____Ruby_https__github_com_getdyspatch_dyspatch_ruby",
   "license": "Apache-2.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --recursive"
+    "build": "babel src -d dist",
+    "prepack": "npm run build",
+    "test": "mocha --require @babel/register --recursive"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "superagent": "3.7.0",
-    "querystring": "0.2.0"
+    "@babel/cli": "^7.0.0",
+    "superagent": "3.7.0"
   },
   "devDependencies": {
-    "mocha": "~2.3.4",
-    "sinon": "1.17.3",
-    "expect.js": "~0.3.1"
-  }
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
 }

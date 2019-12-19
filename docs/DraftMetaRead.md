@@ -1,6 +1,7 @@
 # DyspatchClient.DraftMetaRead
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | An opaque, unique identifier for a draft | [optional] 

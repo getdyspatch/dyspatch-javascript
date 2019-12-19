@@ -4,58 +4,112 @@ All URIs are relative to *https://api.dyspatch.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**draftsDraftIdGet**](DraftsApi.md#draftsDraftIdGet) | **GET** /drafts/{draftId} | Get Draft by ID
-[**draftsDraftIdLocalizationKeysGet**](DraftsApi.md#draftsDraftIdLocalizationKeysGet) | **GET** /drafts/{draftId}/localizationKeys | Get Localization Keys
-[**draftsDraftIdLocalizationsGet**](DraftsApi.md#draftsDraftIdLocalizationsGet) | **GET** /drafts/{draftId}/localizations | Get Localizations on a Draft
-[**draftsDraftIdLocalizationsLanguageIdDelete**](DraftsApi.md#draftsDraftIdLocalizationsLanguageIdDelete) | **DELETE** /drafts/{draftId}/localizations/{languageId} | Remove a Localization
-[**draftsDraftIdLocalizationsLanguageIdPut**](DraftsApi.md#draftsDraftIdLocalizationsLanguageIdPut) | **PUT** /drafts/{draftId}/localizations/{languageId} | Create or Update a Localization
-[**draftsDraftIdLocalizationsLanguageIdTranslationsPut**](DraftsApi.md#draftsDraftIdLocalizationsLanguageIdTranslationsPut) | **PUT** /drafts/{draftId}/localizations/{languageId}/translations | Set Translations for Language
-[**draftsDraftIdPublishRequestPost**](DraftsApi.md#draftsDraftIdPublishRequestPost) | **POST** /drafts/{draftId}/publishRequest | Submit the Draft for Approval
-[**draftsGet**](DraftsApi.md#draftsGet) | **GET** /drafts | List Drafts
+[**deleteLocalization**](DraftsApi.md#deleteLocalization) | **DELETE** /drafts/{draftId}/localizations/{languageId} | Remove a localization
+[**getDraftById**](DraftsApi.md#getDraftById) | **GET** /drafts/{draftId} | Get Draft by ID
+[**getDraftLocalizationKeys**](DraftsApi.md#getDraftLocalizationKeys) | **GET** /drafts/{draftId}/localizationKeys | Get localization keys
+[**getDrafts**](DraftsApi.md#getDrafts) | **GET** /drafts | List Drafts
+[**getLocalizationForDraft**](DraftsApi.md#getLocalizationForDraft) | **GET** /drafts/{draftId}/localizations | Get localizations on a draft
+[**saveLocalization**](DraftsApi.md#saveLocalization) | **PUT** /drafts/{draftId}/localizations/{languageId} | Create or update a localization
+[**setTranslation**](DraftsApi.md#setTranslation) | **PUT** /drafts/{draftId}/localizations/{languageId}/translations | Set translations for language
+[**submitDraftForApproval**](DraftsApi.md#submitDraftForApproval) | **POST** /drafts/{draftId}/publishRequest | Submit the draft for approval
 
 
-<a name="draftsDraftIdGet"></a>
-# **draftsDraftIdGet**
-> DraftRead draftsDraftIdGet(draftId, targetLanguage)
 
-Get Draft by ID
+## deleteLocalization
 
-Gets a draft object with the matching ID. The \"compiled\" field will contain the unlocalized default template object.
+> deleteLocalization(draftId, languageId, accept)
+
+Remove a localization
+
+Deletes the localization with the given language ID if it exists
 
 ### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
 
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
 // Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
+let Bearer = defaultClient.authentications['Bearer'];
 Bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DyspatchClient.DraftsApi();
+let apiInstance = new DyspatchClient.DraftsApi();
+let draftId = "draftId_example"; // String | A draft ID
+let languageId = "languageId_example"; // String | A language ID (eg: en-US)
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+apiInstance.deleteLocalization(draftId, languageId, accept, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
 
-var draftId = "draftId_example"; // String | A draft ID
-
-var targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
+### Parameters
 
 
-var callback = function(error, data, response) {
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **draftId** | **String**| A draft ID | 
+ **languageId** | **String**| A language ID (eg: en-US) | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## getDraftById
+
+> DraftRead getDraftById(draftId, targetLanguage, accept)
+
+Get Draft by ID
+
+Gets a draft object with the matching ID. The \&quot;compiled\&quot; field will contain the template in the default, unlocalized form.
+
+### Example
+
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new DyspatchClient.DraftsApi();
+let draftId = "draftId_example"; // String | A draft ID
+let targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+apiInstance.getDraftById(draftId, targetLanguage, accept, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.draftsDraftIdGet(draftId, targetLanguage, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
  **targetLanguage** | **String**| The type of templating language to compile as. Should only be used for visual templates. | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
 
 ### Return type
 
@@ -67,52 +121,48 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.dyspatch.2019.10+json, */*
 
-<a name="draftsDraftIdLocalizationKeysGet"></a>
-# **draftsDraftIdLocalizationKeysGet**
-> [LocalizationKeyRead] draftsDraftIdLocalizationKeysGet(draftId, , opts)
 
-Get Localization Keys
+## getDraftLocalizationKeys
 
-Returns the list of values that need to be translated for the draft. Set the `Accept` header to `application/vnd.dyspatch.2019.10+json` to get a JSON object, or `text/vnd.dyspatch.2019.10+x-gettext-translation` to get the POT file.
+> [LocalizationKeyRead] getDraftLocalizationKeys(draftId, accept)
+
+Get localization keys
+
+Returns the list of values that need to be translated for the draft. Set the &#x60;Accept&#x60; header to &#x60;application/vnd.dyspatch.2019.10+json&#x60; to get a JSON object, or &#x60;text/vnd.dyspatch.2019.10+x-gettext-translation&#x60; to get the POT file.
 
 ### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
 
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
 // Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
+let Bearer = defaultClient.authentications['Bearer'];
 Bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DyspatchClient.DraftsApi();
-
-var draftId = "draftId_example"; // String | A draft ID
-
-var opts = { 
-  'accept': "accept_example" // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\".
-};
-
-var callback = function(error, data, response) {
+let apiInstance = new DyspatchClient.DraftsApi();
+let draftId = "draftId_example"; // String | A draft ID
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+apiInstance.getDraftLocalizationKeys(draftId, accept, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.draftsDraftIdLocalizationKeysGet(draftId, , opts, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\". | [optional] 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
 
 ### Return type
 
@@ -124,329 +174,50 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json, text/vnd.dyspatch.2019.10+x-gettext-translation
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.dyspatch.2019.10+json, text/vnd.dyspatch.2019.10+x-gettext-translation
 
-<a name="draftsDraftIdLocalizationsGet"></a>
-# **draftsDraftIdLocalizationsGet**
-> [LocalizationMetaRead] draftsDraftIdLocalizationsGet(draftId, )
 
-Get Localizations on a Draft
+## getDrafts
 
-Returns localization metadata object for a template draft.
-
-### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new DyspatchClient.DraftsApi();
-
-var draftId = "draftId_example"; // String | A draft ID
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.draftsDraftIdLocalizationsGet(draftId, , callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **draftId** | **String**| A draft ID | 
-
-### Return type
-
-[**[LocalizationMetaRead]**](LocalizationMetaRead.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json
-
-<a name="draftsDraftIdLocalizationsLanguageIdDelete"></a>
-# **draftsDraftIdLocalizationsLanguageIdDelete**
-> draftsDraftIdLocalizationsLanguageIdDelete(draftId, languageId)
-
-Remove a Localization
-
-Deletes the localization with the given `languageId` if it exists.
-
-### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new DyspatchClient.DraftsApi();
-
-var draftId = "draftId_example"; // String | A draft ID
-
-var languageId = "languageId_example"; // String | A language ID (eg: en-US)
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.draftsDraftIdLocalizationsLanguageIdDelete(draftId, languageId, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **draftId** | **String**| A draft ID | 
- **languageId** | **String**| A language ID (eg: en-US) | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json
-
-<a name="draftsDraftIdLocalizationsLanguageIdPut"></a>
-# **draftsDraftIdLocalizationsLanguageIdPut**
-> draftsDraftIdLocalizationsLanguageIdPut(draftId, languageIdbody)
-
-Create or Update a Localization
-
-Inserts a localization or sets the name on an existing localization that already uses the `languageId`.
-
-### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new DyspatchClient.DraftsApi();
-
-var draftId = "draftId_example"; // String | A draft ID
-
-var languageId = "languageId_example"; // String | A language ID (eg: en-US)
-
-var body = new DyspatchClient.Body(); // Body | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.draftsDraftIdLocalizationsLanguageIdPut(draftId, languageIdbody, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **draftId** | **String**| A draft ID | 
- **languageId** | **String**| A language ID (eg: en-US) | 
- **body** | [**Body**](Body.md)|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json
-
-<a name="draftsDraftIdLocalizationsLanguageIdTranslationsPut"></a>
-# **draftsDraftIdLocalizationsLanguageIdTranslationsPut**
-> draftsDraftIdLocalizationsLanguageIdTranslationsPut(draftId, languageIdbody)
-
-Set Translations for Language
-
-Completely replaces any existing translations for the given language with those provided in request body. Variables embedded in keys or values are expected to be in the format `%(my_variable)s` and will automatically convert to the correct Dyspatch format depending on the type of template. Accepts key/value pairs in JSON format or in gettext PO file format. For JSON set `Content-Type` header to `application/json`. For gettext PO format set `Content-Type` header to `text/x-gettext-translation`.
-
-### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new DyspatchClient.DraftsApi();
-
-var draftId = "draftId_example"; // String | A draft ID
-
-var languageId = "languageId_example"; // String | A language ID (eg: en-US)
-
-var body = null; // Object | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.draftsDraftIdLocalizationsLanguageIdTranslationsPut(draftId, languageIdbody, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **draftId** | **String**| A draft ID | 
- **languageId** | **String**| A language ID (eg: en-US) | 
- **body** | **Object**|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json
-
-<a name="draftsDraftIdPublishRequestPost"></a>
-# **draftsDraftIdPublishRequestPost**
-> draftsDraftIdPublishRequestPost(draftId, )
-
-Submit the Draft for Approval
-
-Moves the draft into [submitted and locked state](https://docs.dyspatch.io/templates/submitting_a_template/#awaiting-approval). This will allow your email stakeholders to review the template draft and provide feedback.
-
-### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new DyspatchClient.DraftsApi();
-
-var draftId = "draftId_example"; // String | A draft ID
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.draftsDraftIdPublishRequestPost(draftId, , callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **draftId** | **String**| A draft ID | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json
-
-<a name="draftsGet"></a>
-# **draftsGet**
-> DraftsRead draftsGet(opts)
+> DraftsRead getDrafts(accept, opts)
 
 List Drafts
 
-Gets a list of all drafts for your oranization. Up to 25 results returned before results are paginated.
+Returns all drafts for your organization.
 
 ### Example
-```javascript
-var DyspatchClient = require('dyspatch-client');
-var defaultClient = DyspatchClient.ApiClient.instance;
 
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
 // Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
+let Bearer = defaultClient.authentications['Bearer'];
 Bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DyspatchClient.DraftsApi();
-
-var opts = { 
+let apiInstance = new DyspatchClient.DraftsApi();
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+let opts = {
   'cursor': "cursor_example", // String | A cursor value used to retrieve a specific page from a paginated result set.
   'status': "status_example" // String | Filter the list of drafts by a particular status
 };
-
-var callback = function(error, data, response) {
+apiInstance.getDrafts(accept, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.draftsGet(opts, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
  **cursor** | **String**| A cursor value used to retrieve a specific page from a paginated result set. | [optional] 
  **status** | **String**| Filter the list of drafts by a particular status | [optional] 
 
@@ -460,6 +231,226 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/vnd.dyspatch.2019.10+json
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.dyspatch.2019.10+json, */*
+
+
+## getLocalizationForDraft
+
+> [LocalizationMetaRead] getLocalizationForDraft(draftId, accept)
+
+Get localizations on a draft
+
+Returns localization metadata for the draft
+
+### Example
+
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new DyspatchClient.DraftsApi();
+let draftId = "draftId_example"; // String | A draft ID
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+apiInstance.getLocalizationForDraft(draftId, accept, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **draftId** | **String**| A draft ID | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+
+### Return type
+
+[**[LocalizationMetaRead]**](LocalizationMetaRead.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.dyspatch.2019.10+json
+
+
+## saveLocalization
+
+> saveLocalization(draftId, languageId, accept, inlineObject)
+
+Create or update a localization
+
+Inserts a localization or sets the name on an existing localization that already uses the languageId
+
+### Example
+
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new DyspatchClient.DraftsApi();
+let draftId = "draftId_example"; // String | A draft ID
+let languageId = "languageId_example"; // String | A language ID (eg: en-US)
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+let inlineObject = new DyspatchClient.InlineObject(); // InlineObject | 
+apiInstance.saveLocalization(draftId, languageId, accept, inlineObject, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **draftId** | **String**| A draft ID | 
+ **languageId** | **String**| A language ID (eg: en-US) | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## setTranslation
+
+> setTranslation(draftId, languageId, accept, requestBody)
+
+Set translations for language
+
+Completely replaces any existing translations for the given language with those provided in request body. Variables embedded in keys or values are expected to be in the format &#x60;%(my_variable)s&#x60; and will automatically convert to the correct Dyspatch format depending on the type of template. Accepts key/value pairs in JSON format or in gettext PO file format. For JSON set &#x60;Content-Type&#x60; header to &#x60;application/json&#x60;. For gettext PO format set &#x60;Content-Type&#x60; header to &#x60;text/x-gettext-translation&#x60;.
+
+### Example
+
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new DyspatchClient.DraftsApi();
+let draftId = "draftId_example"; // String | A draft ID
+let languageId = "languageId_example"; // String | A language ID (eg: en-US)
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+let requestBody = {key: "null"}; // {String: String} | 
+apiInstance.setTranslation(draftId, languageId, accept, requestBody, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **draftId** | **String**| A draft ID | 
+ **languageId** | **String**| A language ID (eg: en-US) | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+ **requestBody** | [**{String: String}**](String.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## submitDraftForApproval
+
+> submitDraftForApproval(draftId, accept)
+
+Submit the draft for approval
+
+Moves the draft into submitted state.
+
+### Example
+
+```javascript
+import DyspatchClient from 'dyspatch-client';
+let defaultClient = DyspatchClient.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new DyspatchClient.DraftsApi();
+let draftId = "draftId_example"; // String | A draft ID
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+apiInstance.submitDraftForApproval(draftId, accept, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **draftId** | **String**| A draft ID | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
 

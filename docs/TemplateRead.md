@@ -1,6 +1,7 @@
 # DyspatchClient.TemplateRead
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | An opaque, unique identifier for a template | [optional] 
@@ -10,6 +11,6 @@ Name | Type | Description | Notes
 **compiled** | [**CompiledRead**](CompiledRead.md) |  | [optional] 
 **createdAt** | **Date** | The time of initial creation | [optional] 
 **updatedAt** | **Date** | The time of last update | [optional] 
-**localizations** | [**[LocalizationMetaRead]**](LocalizationMetaRead.md) | A list of the Template's available localizations | [optional] 
+**localizations** | [**[LocalizationMetaRead]**](LocalizationMetaRead.md) | A list of the Template&#39;s available localizations | [optional] 
 
 
