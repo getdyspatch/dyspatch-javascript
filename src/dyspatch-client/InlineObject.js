@@ -14,19 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The LocalizationMetaRead model module.
- * @module dyspatch-client/LocalizationMetaRead
+ * The InlineObject model module.
+ * @module dyspatch-client/InlineObject
  * @version 4.0.0
  */
-class LocalizationMetaRead {
+class InlineObject {
     /**
-     * Constructs a new <code>LocalizationMetaRead</code>.
-     * localization metadata
-     * @alias module:dyspatch-client/LocalizationMetaRead
+     * Constructs a new <code>InlineObject</code>.
+     * @alias module:dyspatch-client/InlineObject
      */
     constructor() { 
         
-        LocalizationMetaRead.initialize(this);
+        InlineObject.initialize(this);
     }
 
     /**
@@ -38,27 +37,18 @@ class LocalizationMetaRead {
     }
 
     /**
-     * Constructs a <code>LocalizationMetaRead</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>InlineObject</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:dyspatch-client/LocalizationMetaRead} obj Optional instance to populate.
-     * @return {module:dyspatch-client/LocalizationMetaRead} The populated <code>LocalizationMetaRead</code> instance.
+     * @param {module:dyspatch-client/InlineObject} obj Optional instance to populate.
+     * @return {module:dyspatch-client/InlineObject} The populated <code>InlineObject</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new LocalizationMetaRead();
+            obj = obj || new InlineObject();
 
-            if (data.hasOwnProperty('localization')) {
-                obj['localization'] = ApiClient.convertToType(data['localization'], 'String');
-            }
-            if (data.hasOwnProperty('language')) {
-                obj['language'] = ApiClient.convertToType(data['language'], 'String');
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('url')) {
-                obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
         }
         return obj;
@@ -68,33 +58,14 @@ class LocalizationMetaRead {
 }
 
 /**
- * An opaque, unique identifier for a localization
- * @member {String} localization
- */
-LocalizationMetaRead.prototype['localization'] = undefined;
-
-/**
- * A language identifier comprised of a language and a country identifier. See [supported languages](https://docs.dyspatch.io/localization/supported_languages/). 
- * @member {String} language
- */
-LocalizationMetaRead.prototype['language'] = undefined;
-
-/**
- * The user-specified name of a localization
  * @member {String} name
  */
-LocalizationMetaRead.prototype['name'] = undefined;
-
-/**
- * The API url for a specific localization
- * @member {String} url
- */
-LocalizationMetaRead.prototype['url'] = undefined;
+InlineObject.prototype['name'] = undefined;
 
 
 
 
 
 
-export default LocalizationMetaRead;
+export default InlineObject;
 

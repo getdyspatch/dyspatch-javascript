@@ -1,6 +1,7 @@
 # DyspatchClient.Cursor
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **next** | **String** | A cursor to fetch the next page of results | [optional] 
