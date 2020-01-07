@@ -29,19 +29,20 @@ describe("Integration", () => {
         done(error);
         return;
       }
-
-      const template = data.data[0];
       console.log(data);
-      console.log(template);
+      done();
+    });
+  });
 
-      templates.getTemplateById(template.id, "", version, (error, data) => {
-        if (error) {
-          done(error);
-          return;
-        }
-        console.log(data);
-        done();
-      });
+  it("gets a single template", done => {
+    const id = "tem_01de5teh6k59kya8q92mb01qzq"
+    templates.getTemplateById(id, "handlebars", version, (error, data) => {
+      if (error) {
+        done(error);
+        return;
+      }
+      console.log(data);
+      done();
     });
   });
 
@@ -51,19 +52,20 @@ describe("Integration", () => {
         done(error);
         return;
       }
-
-      const draft = data.data[0];
       console.log(data);
-      console.log(draft);
+      done();
+    });
+  });
 
-      drafts.getDraftById(draft.id, "handlebars", version, (error, data) => {
-        if (error) {
-          done(error);
-          return;
-        }
-        console.log(data);
-        done();
-      });
+  it("gets a single draft", done => {
+    const id = "tdft_01dxkwr0nevs5h2baa3n3dgktp"
+    drafts.getDraftById(id, "handlebars", version, (error, data) => {
+      if (error) {
+        done(error);
+        return;
+      }
+      console.log(data);
+      done();
     });
   });
 });
