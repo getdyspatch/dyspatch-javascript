@@ -1,7 +1,7 @@
 {
   "name": "dyspatch-client",
-  "version": "4.0.0",
-  "description": "The client library for dyspatch.io",
+  "version": "5.0.0",
+  "description": "_IntroductionThe_Dyspatch_API_is_based_on_the_REST_paradigm_and_features_resource_based_URLs_with_standard_HTTP_response_codes_to_indicate_errors__We_use_standard_HTTP_authentication_and_request_verbs_and_all_responses_are_JSON_formatted__See_our__Implementation_Guide_https__docs_dyspatch_io_development_implementing_dyspatch__for_more_details_on_how_to_implement_Dyspatch__API_Client_Libraries_Dyspatch_provides_API_Clients_for_popular_languages_and_web_frameworks____Java_https__github_com_getdyspatch_dyspatch_java____Javascript_https__github_com_getdyspatch_dyspatch_javascript____Python_https__github_com_getdyspatch_dyspatch_python____C_https__github_com_getdyspatch_dyspatch_dotnet____Go_https__github_com_getdyspatch_dyspatch_golang____Ruby_https__github_com_getdyspatch_dyspatch_ruby",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "scripts": {

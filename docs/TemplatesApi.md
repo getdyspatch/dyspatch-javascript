@@ -31,7 +31,7 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.TemplatesApi();
 let templateId = "templateId_example"; // String | A template ID
 let targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
 apiInstance.getTemplateById(templateId, targetLanguage, accept, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**| A template ID | 
  **targetLanguage** | **String**| The type of templating language to compile as. Should only be used for visual templates. | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
 
 ### Return type
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.dyspatch.2019.10+json, */*
+- **Accept**: application/vnd.dyspatch.2020.04+json, */*
 
 
 ## getTemplates
@@ -84,7 +84,7 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new DyspatchClient.TemplatesApi();
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
 let opts = {
   'cursor': "cursor_example" // String | A cursor value used to retrieve a specific page from a paginated result set.
 };
@@ -102,7 +102,7 @@ apiInstance.getTemplates(accept, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
  **cursor** | **String**| A cursor value used to retrieve a specific page from a paginated result set. | [optional] 
 
 ### Return type
@@ -116,5 +116,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.dyspatch.2019.10+json, */*
+- **Accept**: application/vnd.dyspatch.2020.04+json, */*
 
