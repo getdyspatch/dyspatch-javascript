@@ -4,7 +4,7 @@
  * DO NOT DELETE THIS FILE.
  */
 
-const version = "application/vnd.dyspatch.2019.10+json";
+const version = "application/vnd.dyspatch.2020.04+json";
 
 describe("Integration", () => {
   let templates;
