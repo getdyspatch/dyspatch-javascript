@@ -30,7 +30,7 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.LocalizationsApi();
 let localizationId = "localizationId_example"; // String | A localization ID
 let targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2019.10\", set the value to \"application/vnd.dyspatch.2019.10+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
 apiInstance.getLocalizationById(localizationId, targetLanguage, accept, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **localizationId** | **String**| A localization ID | 
  **targetLanguage** | **String**| The type of templating language to compile as. Should only be used for visual templates. | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2019.10\&quot;, set the value to \&quot;application/vnd.dyspatch.2019.10+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
 
 ### Return type
 
@@ -60,5 +60,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.dyspatch.2019.10+json, */*
+- **Accept**: application/vnd.dyspatch.2020.04+json, */*
 
