@@ -17,7 +17,7 @@ import LocalizationMetaRead from './LocalizationMetaRead';
 /**
  * The TemplateMetaRead model module.
  * @module dyspatch-client/TemplateMetaRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class TemplateMetaRead {
     /**

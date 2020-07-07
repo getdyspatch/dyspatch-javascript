@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CompiledRead model module.
  * @module dyspatch-client/CompiledRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class CompiledRead {
     /**

@@ -18,7 +18,7 @@ import LocalizationMetaRead from './LocalizationMetaRead';
 /**
  * The DraftRead model module.
  * @module dyspatch-client/DraftRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class DraftRead {
     /**

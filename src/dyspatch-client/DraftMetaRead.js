@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DraftMetaRead model module.
  * @module dyspatch-client/DraftMetaRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class DraftMetaRead {
     /**

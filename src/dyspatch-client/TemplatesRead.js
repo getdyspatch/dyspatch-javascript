@@ -18,7 +18,7 @@ import TemplateMetaRead from './TemplateMetaRead';
 /**
  * The TemplatesRead model module.
  * @module dyspatch-client/TemplatesRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class TemplatesRead {
     /**

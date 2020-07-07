@@ -20,7 +20,7 @@ import TemplatesRead from '../dyspatch-client/TemplatesRead';
 /**
 * Templates service.
 * @module dyspatch-client/TemplatesApi
-* @version 5.0.0
+* @version 5.0.1
 */
 export default class TemplatesApi {
 
@@ -34,15 +34,8 @@ export default class TemplatesApi {
     constructor(apiClient) {
         this.apiClient = apiClient || ApiClient.instance;
     }
+dfkajsldfjasldkjfaslkdjflaskjdflksajdlfkjs
 
-
-    /**
-     * Callback function to receive the result of the getTemplateById operation.
-     * @callback module:dyspatch-client/TemplatesApi~getTemplateByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:dyspatch-client/TemplateRead} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Template by ID
@@ -50,10 +43,9 @@ export default class TemplatesApi {
      * @param {String} templateId A template ID
      * @param {module:dyspatch-client/String} targetLanguage The type of templating language to compile as. Should only be used for visual templates.
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-     * @param {module:dyspatch-client/TemplatesApi~getTemplateByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:dyspatch-client/TemplateRead}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:dyspatch-client/TemplateRead} and HTTP response
      */
-    getTemplateById(templateId, targetLanguage, accept, callback) {
+    getTemplateByIdWithHttpInfo(templateId, targetLanguage, accept) {
       let postBody = null;
       // verify the required parameter 'templateId' is set
       if (templateId === undefined || templateId === null) {
@@ -87,17 +79,25 @@ export default class TemplatesApi {
       return this.apiClient.callApi(
         '/templates/{templateId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getTemplates operation.
-     * @callback module:dyspatch-client/TemplatesApi~getTemplatesCallback
-     * @param {String} error Error message, if any.
-     * @param {module:dyspatch-client/TemplatesRead} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get Template by ID
+     * Gets a template object with the matching ID. If the template has published content the \"compiled\" field will contain the template .
+     * @param {String} templateId A template ID
+     * @param {module:dyspatch-client/String} targetLanguage The type of templating language to compile as. Should only be used for visual templates.
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:dyspatch-client/TemplateRead}
      */
+    getTemplateById(templateId, targetLanguage, accept) {
+      return this.getTemplateByIdWithHttpInfo(templateId, targetLanguage, accept)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List Templates
@@ -105,10 +105,9 @@ export default class TemplatesApi {
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
      * @param {Object} opts Optional parameters
      * @param {String} opts.cursor A cursor value used to retrieve a specific page from a paginated result set.
-     * @param {module:dyspatch-client/TemplatesApi~getTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:dyspatch-client/TemplatesRead}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:dyspatch-client/TemplatesRead} and HTTP response
      */
-    getTemplates(accept, opts, callback) {
+    getTemplatesWithHttpInfo(accept, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'accept' is set
@@ -134,8 +133,23 @@ export default class TemplatesApi {
       return this.apiClient.callApi(
         '/templates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * List Templates
+     * Gets a list of Template Metadata objects for all templates. Up to 25 results returned before results are paginated.
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor A cursor value used to retrieve a specific page from a paginated result set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:dyspatch-client/TemplatesRead}
+     */
+    getTemplates(accept, opts) {
+      return this.getTemplatesWithHttpInfo(accept, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

@@ -23,7 +23,7 @@ import LocalizationMetaRead from '../dyspatch-client/LocalizationMetaRead';
 /**
 * Drafts service.
 * @module dyspatch-client/DraftsApi
-* @version 5.0.0
+* @version 5.0.1
 */
 export default class DraftsApi {
 
@@ -37,15 +37,8 @@ export default class DraftsApi {
     constructor(apiClient) {
         this.apiClient = apiClient || ApiClient.instance;
     }
+dfkajsldfjasldkjfaslkdjflaskjdflksajdlfkjs
 
-
-    /**
-     * Callback function to receive the result of the deleteLocalization operation.
-     * @callback module:dyspatch-client/DraftsApi~deleteLocalizationCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Remove a localization
@@ -53,9 +46,9 @@ export default class DraftsApi {
      * @param {String} draftId A draft ID
      * @param {String} languageId A language ID (eg: en-US)
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-     * @param {module:dyspatch-client/DraftsApi~deleteLocalizationCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteLocalization(draftId, languageId, accept, callback) {
+    deleteLocalizationWithHttpInfo(draftId, languageId, accept) {
       let postBody = null;
       // verify the required parameter 'draftId' is set
       if (draftId === undefined || draftId === null) {
@@ -84,22 +77,30 @@ export default class DraftsApi {
 
       let authNames = ['Bearer'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/vnd.dyspatch.2020.04+json', '*/*'];
       let returnType = null;
       return this.apiClient.callApi(
         '/drafts/{draftId}/localizations/{languageId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getDraftById operation.
-     * @callback module:dyspatch-client/DraftsApi~getDraftByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:dyspatch-client/DraftRead} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Remove a localization
+     * Deletes the localization with the given language ID if it exists
+     * @param {String} draftId A draft ID
+     * @param {String} languageId A language ID (eg: en-US)
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteLocalization(draftId, languageId, accept) {
+      return this.deleteLocalizationWithHttpInfo(draftId, languageId, accept)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get Draft by ID
@@ -107,10 +108,9 @@ export default class DraftsApi {
      * @param {String} draftId A draft ID
      * @param {module:dyspatch-client/String} targetLanguage The type of templating language to compile as. Should only be used for visual templates.
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-     * @param {module:dyspatch-client/DraftsApi~getDraftByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:dyspatch-client/DraftRead}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:dyspatch-client/DraftRead} and HTTP response
      */
-    getDraftById(draftId, targetLanguage, accept, callback) {
+    getDraftByIdWithHttpInfo(draftId, targetLanguage, accept) {
       let postBody = null;
       // verify the required parameter 'draftId' is set
       if (draftId === undefined || draftId === null) {
@@ -144,27 +144,34 @@ export default class DraftsApi {
       return this.apiClient.callApi(
         '/drafts/{draftId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getDraftLocalizationKeys operation.
-     * @callback module:dyspatch-client/DraftsApi~getDraftLocalizationKeysCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:dyspatch-client/LocalizationKeyRead>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get Draft by ID
+     * Gets a draft object with the matching ID. The \"compiled\" field will contain the template in the default, unlocalized form.
+     * @param {String} draftId A draft ID
+     * @param {module:dyspatch-client/String} targetLanguage The type of templating language to compile as. Should only be used for visual templates.
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:dyspatch-client/DraftRead}
      */
+    getDraftById(draftId, targetLanguage, accept) {
+      return this.getDraftByIdWithHttpInfo(draftId, targetLanguage, accept)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get localization keys
      * Returns the list of values that need to be translated for the draft. Set the `Accept` header to `application/vnd.dyspatch.2020.04+json` to get a JSON object, or `text/vnd.dyspatch.2020.04+x-gettext-translation` to get the POT file.
      * @param {String} draftId A draft ID
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-     * @param {module:dyspatch-client/DraftsApi~getDraftLocalizationKeysCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:dyspatch-client/LocalizationKeyRead>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:dyspatch-client/LocalizationKeyRead>} and HTTP response
      */
-    getDraftLocalizationKeys(draftId, accept, callback) {
+    getDraftLocalizationKeysWithHttpInfo(draftId, accept) {
       let postBody = null;
       // verify the required parameter 'draftId' is set
       if (draftId === undefined || draftId === null) {
@@ -188,22 +195,29 @@ export default class DraftsApi {
 
       let authNames = ['Bearer'];
       let contentTypes = [];
-      let accepts = ['application/vnd.dyspatch.2020.04+json', 'text/vnd.dyspatch.2020.04+x-gettext-translation'];
+      let accepts = ['application/vnd.dyspatch.2020.04+json', '*/*'];
       let returnType = [LocalizationKeyRead];
       return this.apiClient.callApi(
         '/drafts/{draftId}/localizationKeys', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getDrafts operation.
-     * @callback module:dyspatch-client/DraftsApi~getDraftsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:dyspatch-client/DraftsRead} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get localization keys
+     * Returns the list of values that need to be translated for the draft. Set the `Accept` header to `application/vnd.dyspatch.2020.04+json` to get a JSON object, or `text/vnd.dyspatch.2020.04+x-gettext-translation` to get the POT file.
+     * @param {String} draftId A draft ID
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:dyspatch-client/LocalizationKeyRead>}
      */
+    getDraftLocalizationKeys(draftId, accept) {
+      return this.getDraftLocalizationKeysWithHttpInfo(draftId, accept)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List Drafts
@@ -212,10 +226,9 @@ export default class DraftsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.cursor A cursor value used to retrieve a specific page from a paginated result set.
      * @param {module:dyspatch-client/String} opts.status Filter the list of drafts by a particular status
-     * @param {module:dyspatch-client/DraftsApi~getDraftsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:dyspatch-client/DraftsRead}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:dyspatch-client/DraftsRead} and HTTP response
      */
-    getDrafts(accept, opts, callback) {
+    getDraftsWithHttpInfo(accept, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'accept' is set
@@ -242,27 +255,35 @@ export default class DraftsApi {
       return this.apiClient.callApi(
         '/drafts', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getLocalizationForDraft operation.
-     * @callback module:dyspatch-client/DraftsApi~getLocalizationForDraftCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:dyspatch-client/LocalizationMetaRead>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List Drafts
+     * Returns all drafts for your organization.
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor A cursor value used to retrieve a specific page from a paginated result set.
+     * @param {module:dyspatch-client/String} opts.status Filter the list of drafts by a particular status
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:dyspatch-client/DraftsRead}
      */
+    getDrafts(accept, opts) {
+      return this.getDraftsWithHttpInfo(accept, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get localizations on a draft
      * Returns localization metadata for the draft
      * @param {String} draftId A draft ID
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-     * @param {module:dyspatch-client/DraftsApi~getLocalizationForDraftCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:dyspatch-client/LocalizationMetaRead>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:dyspatch-client/LocalizationMetaRead>} and HTTP response
      */
-    getLocalizationForDraft(draftId, accept, callback) {
+    getLocalizationForDraftWithHttpInfo(draftId, accept) {
       let postBody = null;
       // verify the required parameter 'draftId' is set
       if (draftId === undefined || draftId === null) {
@@ -286,22 +307,29 @@ export default class DraftsApi {
 
       let authNames = ['Bearer'];
       let contentTypes = [];
-      let accepts = ['application/vnd.dyspatch.2020.04+json'];
+      let accepts = ['application/vnd.dyspatch.2020.04+json', '*/*'];
       let returnType = [LocalizationMetaRead];
       return this.apiClient.callApi(
         '/drafts/{draftId}/localizations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the saveLocalization operation.
-     * @callback module:dyspatch-client/DraftsApi~saveLocalizationCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Get localizations on a draft
+     * Returns localization metadata for the draft
+     * @param {String} draftId A draft ID
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:dyspatch-client/LocalizationMetaRead>}
      */
+    getLocalizationForDraft(draftId, accept) {
+      return this.getLocalizationForDraftWithHttpInfo(draftId, accept)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Create or update a localization
@@ -310,9 +338,9 @@ export default class DraftsApi {
      * @param {String} languageId A language ID (eg: en-US)
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
      * @param {module:dyspatch-client/InlineObject} inlineObject 
-     * @param {module:dyspatch-client/DraftsApi~saveLocalizationCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    saveLocalization(draftId, languageId, accept, inlineObject, callback) {
+    saveLocalizationWithHttpInfo(draftId, languageId, accept, inlineObject) {
       let postBody = inlineObject;
       // verify the required parameter 'draftId' is set
       if (draftId === undefined || draftId === null) {
@@ -345,22 +373,31 @@ export default class DraftsApi {
 
       let authNames = ['Bearer'];
       let contentTypes = ['application/json'];
-      let accepts = [];
+      let accepts = ['application/vnd.dyspatch.2020.04+json', '*/*'];
       let returnType = null;
       return this.apiClient.callApi(
         '/drafts/{draftId}/localizations/{languageId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the setTranslation operation.
-     * @callback module:dyspatch-client/DraftsApi~setTranslationCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create or update a localization
+     * Inserts a localization or sets the name on an existing localization that already uses the languageId
+     * @param {String} draftId A draft ID
+     * @param {String} languageId A language ID (eg: en-US)
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @param {module:dyspatch-client/InlineObject} inlineObject 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    saveLocalization(draftId, languageId, accept, inlineObject) {
+      return this.saveLocalizationWithHttpInfo(draftId, languageId, accept, inlineObject)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Set translations for language
@@ -369,9 +406,9 @@ export default class DraftsApi {
      * @param {String} languageId A language ID (eg: en-US)
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
      * @param {Object.<String, {String: String}>} requestBody 
-     * @param {module:dyspatch-client/DraftsApi~setTranslationCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    setTranslation(draftId, languageId, accept, requestBody, callback) {
+    setTranslationWithHttpInfo(draftId, languageId, accept, requestBody) {
       let postBody = requestBody;
       // verify the required parameter 'draftId' is set
       if (draftId === undefined || draftId === null) {
@@ -404,31 +441,40 @@ export default class DraftsApi {
 
       let authNames = ['Bearer'];
       let contentTypes = ['application/json'];
-      let accepts = ['*/*'];
+      let accepts = ['application/vnd.dyspatch.2020.04+json', '*/*'];
       let returnType = null;
       return this.apiClient.callApi(
         '/drafts/{draftId}/localizations/{languageId}/translations', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the submitDraftForApproval operation.
-     * @callback module:dyspatch-client/DraftsApi~submitDraftForApprovalCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Set translations for language
+     * Completely replaces any existing translations for the given language with those provided in request body. Variables embedded in keys or values are expected to be in the format `%(my_variable)s` and will automatically convert to the correct Dyspatch format depending on the type of template. Accepts key/value pairs in JSON format or in gettext PO file format. For JSON set `Content-Type` header to `application/json`. For gettext PO format set `Content-Type` header to `text/x-gettext-translation`.
+     * @param {String} draftId A draft ID
+     * @param {String} languageId A language ID (eg: en-US)
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @param {Object.<String, {String: String}>} requestBody 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    setTranslation(draftId, languageId, accept, requestBody) {
+      return this.setTranslationWithHttpInfo(draftId, languageId, accept, requestBody)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Submit the draft for approval
      * Moves the draft into submitted state.
      * @param {String} draftId A draft ID
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-     * @param {module:dyspatch-client/DraftsApi~submitDraftForApprovalCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    submitDraftForApproval(draftId, accept, callback) {
+    submitDraftForApprovalWithHttpInfo(draftId, accept) {
       let postBody = null;
       // verify the required parameter 'draftId' is set
       if (draftId === undefined || draftId === null) {
@@ -452,13 +498,27 @@ export default class DraftsApi {
 
       let authNames = ['Bearer'];
       let contentTypes = [];
-      let accepts = ['*/*'];
+      let accepts = ['application/vnd.dyspatch.2020.04+json', '*/*'];
       let returnType = null;
       return this.apiClient.callApi(
         '/drafts/{draftId}/publishRequest', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Submit the draft for approval
+     * Moves the draft into submitted state.
+     * @param {String} draftId A draft ID
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    submitDraftForApproval(draftId, accept) {
+      return this.submitDraftForApprovalWithHttpInfo(draftId, accept)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

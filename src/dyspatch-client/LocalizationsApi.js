@@ -19,7 +19,7 @@ import LocalizationRead from '../dyspatch-client/LocalizationRead';
 /**
 * Localizations service.
 * @module dyspatch-client/LocalizationsApi
-* @version 5.0.0
+* @version 5.0.1
 */
 export default class LocalizationsApi {
 
@@ -33,15 +33,8 @@ export default class LocalizationsApi {
     constructor(apiClient) {
         this.apiClient = apiClient || ApiClient.instance;
     }
+dfkajsldfjasldkjfaslkdjflaskjdflksajdlfkjs
 
-
-    /**
-     * Callback function to receive the result of the getLocalizationById operation.
-     * @callback module:dyspatch-client/LocalizationsApi~getLocalizationByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:dyspatch-client/LocalizationRead} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get Localization Object by ID
@@ -49,10 +42,9 @@ export default class LocalizationsApi {
      * @param {String} localizationId A localization ID
      * @param {module:dyspatch-client/String} targetLanguage The type of templating language to compile as. Should only be used for visual templates.
      * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-     * @param {module:dyspatch-client/LocalizationsApi~getLocalizationByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:dyspatch-client/LocalizationRead}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:dyspatch-client/LocalizationRead} and HTTP response
      */
-    getLocalizationById(localizationId, targetLanguage, accept, callback) {
+    getLocalizationByIdWithHttpInfo(localizationId, targetLanguage, accept) {
       let postBody = null;
       // verify the required parameter 'localizationId' is set
       if (localizationId === undefined || localizationId === null) {
@@ -86,8 +78,23 @@ export default class LocalizationsApi {
       return this.apiClient.callApi(
         '/localizations/{localizationId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Get Localization Object by ID
+     * Returns a specific localization object with a matching ID
+     * @param {String} localizationId A localization ID
+     * @param {module:dyspatch-client/String} targetLanguage The type of templating language to compile as. Should only be used for visual templates.
+     * @param {String} accept A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:dyspatch-client/LocalizationRead}
+     */
+    getLocalizationById(localizationId, targetLanguage, accept) {
+      return this.getLocalizationByIdWithHttpInfo(localizationId, targetLanguage, accept)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

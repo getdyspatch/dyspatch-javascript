@@ -18,7 +18,7 @@ import DraftMetaRead from './DraftMetaRead';
 /**
  * The DraftsRead model module.
  * @module dyspatch-client/DraftsRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class DraftsRead {
     /**

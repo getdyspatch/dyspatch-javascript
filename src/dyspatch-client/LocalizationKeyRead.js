@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LocalizationKeyRead model module.
  * @module dyspatch-client/LocalizationKeyRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class LocalizationKeyRead {
     /**

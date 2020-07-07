@@ -32,13 +32,12 @@ let apiInstance = new DyspatchClient.TemplatesApi();
 let templateId = "templateId_example"; // String | A template ID
 let targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-apiInstance.getTemplateById(templateId, targetLanguage, accept, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getTemplateById(templateId, targetLanguage, accept).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -88,13 +87,12 @@ let accept = "accept_example"; // String | A version of the API that should be u
 let opts = {
   'cursor': "cursor_example" // String | A cursor value used to retrieve a specific page from a paginated result set.
 };
-apiInstance.getTemplates(accept, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getTemplates(accept, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

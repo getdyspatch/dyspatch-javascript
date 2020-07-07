@@ -17,7 +17,7 @@ import CompiledRead from './CompiledRead';
 /**
  * The LocalizationRead model module.
  * @module dyspatch-client/LocalizationRead
- * @version 5.0.0
+ * @version 5.0.1
  */
 class LocalizationRead {
     /**

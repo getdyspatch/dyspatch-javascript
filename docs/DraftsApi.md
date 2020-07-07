@@ -38,13 +38,12 @@ let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let languageId = "languageId_example"; // String | A language ID (eg: en-US)
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-apiInstance.deleteLocalization(draftId, languageId, accept, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteLocalization(draftId, languageId, accept).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -93,13 +92,12 @@ let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-apiInstance.getDraftById(draftId, targetLanguage, accept, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getDraftById(draftId, targetLanguage, accept).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -147,13 +145,12 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-apiInstance.getDraftLocalizationKeys(draftId, accept, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getDraftLocalizationKeys(draftId, accept).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -203,13 +200,12 @@ let opts = {
   'cursor': "cursor_example", // String | A cursor value used to retrieve a specific page from a paginated result set.
   'status': "status_example" // String | Filter the list of drafts by a particular status
 };
-apiInstance.getDrafts(accept, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getDrafts(accept, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -257,13 +253,12 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-apiInstance.getLocalizationForDraft(draftId, accept, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getLocalizationForDraft(draftId, accept).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -312,13 +307,12 @@ let draftId = "draftId_example"; // String | A draft ID
 let languageId = "languageId_example"; // String | A language ID (eg: en-US)
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
 let inlineObject = new DyspatchClient.InlineObject(); // InlineObject | 
-apiInstance.saveLocalization(draftId, languageId, accept, inlineObject, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.saveLocalization(draftId, languageId, accept, inlineObject).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -369,13 +363,12 @@ let draftId = "draftId_example"; // String | A draft ID
 let languageId = "languageId_example"; // String | A language ID (eg: en-US)
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
 let requestBody = {key: "null"}; // {String: String} | 
-apiInstance.setTranslation(draftId, languageId, accept, requestBody, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.setTranslation(draftId, languageId, accept, requestBody).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -424,13 +417,12 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-apiInstance.submitDraftForApproval(draftId, accept, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.submitDraftForApproval(draftId, accept).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

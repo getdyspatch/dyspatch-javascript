@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineObject model module.
  * @module dyspatch-client/InlineObject
- * @version 5.0.0
+ * @version 5.0.1
  */
 class InlineObject {
     /**

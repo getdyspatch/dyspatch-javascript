@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The APIError model module.
  * @module dyspatch-client/APIError
- * @version 5.0.0
+ * @version 5.0.1
  */
 class APIError {
     /**

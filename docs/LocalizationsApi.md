@@ -31,13 +31,12 @@ let apiInstance = new DyspatchClient.LocalizationsApi();
 let localizationId = "localizationId_example"; // String | A localization ID
 let targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
 let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
-apiInstance.getLocalizationById(localizationId, targetLanguage, accept, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getLocalizationById(localizationId, targetLanguage, accept).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

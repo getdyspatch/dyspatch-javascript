@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Cursor model module.
  * @module dyspatch-client/Cursor
- * @version 5.0.0
+ * @version 5.0.1
  */
 class Cursor {
     /**
