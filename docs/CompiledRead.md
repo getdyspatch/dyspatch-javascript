@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **replyTo** | **String** | Reply-To address | [optional] 
 **subject** | **Blob** | Base64 encoded template subject line | [optional] 
 **html** | **Blob** | Base64 encoded template HTML body | [optional] 
+**ampHtml** | **Blob** | Base64 encoded amp version of template body | [optional] 
 **text** | **Blob** | Base64 encoded template text body | [optional] 
 
 
