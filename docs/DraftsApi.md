@@ -37,7 +37,7 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let languageId = "languageId_example"; // String | A language ID (eg: en-US)
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 apiInstance.deleteLocalization(draftId, languageId, accept).then(() => {
   console.log('API called successfully.');
 }, (error) => {
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
  **languageId** | **String**| A language ID (eg: en-US) | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
 
 ### Return type
 
@@ -91,7 +91,7 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let targetLanguage = "targetLanguage_example"; // String | The type of templating language to compile as. Should only be used for visual templates.
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 apiInstance.getDraftById(draftId, targetLanguage, accept).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
  **targetLanguage** | **String**| The type of templating language to compile as. Should only be used for visual templates. | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
 
 ### Return type
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.dyspatch.2020.04+json, */*
+- **Accept**: application/vnd.dyspatch.2020.11+json, */*
 
 
 ## getDraftLocalizationKeys
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 Get localization keys
 
-Returns the list of values that need to be translated for the draft. Set the &#x60;Accept&#x60; header to &#x60;application/vnd.dyspatch.2020.04+json&#x60; to get a JSON object, or &#x60;text/vnd.dyspatch.2020.04+x-gettext-translation&#x60; to get the POT file.
+Returns the list of values that need to be translated for the draft. Set the &#x60;Accept&#x60; header to &#x60;application/vnd.dyspatch.2020.11+json&#x60; to get a JSON object, or &#x60;text/vnd.dyspatch.2020.11+x-gettext-translation&#x60; to get the POT file.
 
 ### Example
 
@@ -144,7 +144,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 apiInstance.getDraftLocalizationKeys(draftId, accept).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -159,7 +159,7 @@ apiInstance.getDraftLocalizationKeys(draftId, accept).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
 
 ### Return type
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.dyspatch.2020.04+json, text/vnd.dyspatch.2020.04+x-gettext-translation
+- **Accept**: application/vnd.dyspatch.2020.11+json, text/vnd.dyspatch.2020.11+x-gettext-translation
 
 
 ## getDrafts
@@ -195,7 +195,7 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new DyspatchClient.DraftsApi();
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 let opts = {
   'cursor': "cursor_example", // String | A cursor value used to retrieve a specific page from a paginated result set.
   'status': "status_example" // String | Filter the list of drafts by a particular status
@@ -213,7 +213,7 @@ apiInstance.getDrafts(accept, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
  **cursor** | **String**| A cursor value used to retrieve a specific page from a paginated result set. | [optional] 
  **status** | **String**| Filter the list of drafts by a particular status | [optional] 
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.dyspatch.2020.04+json, */*
+- **Accept**: application/vnd.dyspatch.2020.11+json, */*
 
 
 ## getLocalizationForDraft
@@ -252,7 +252,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 apiInstance.getLocalizationForDraft(draftId, accept).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -267,7 +267,7 @@ apiInstance.getLocalizationForDraft(draftId, accept).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
 
 ### Return type
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.dyspatch.2020.04+json
+- **Accept**: application/vnd.dyspatch.2020.11+json
 
 
 ## saveLocalization
@@ -305,7 +305,7 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let languageId = "languageId_example"; // String | A language ID (eg: en-US)
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 let inlineObject = new DyspatchClient.InlineObject(); // InlineObject | 
 apiInstance.saveLocalization(draftId, languageId, accept, inlineObject).then(() => {
   console.log('API called successfully.');
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
  **languageId** | **String**| A language ID (eg: en-US) | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
  **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
@@ -361,7 +361,7 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
 let languageId = "languageId_example"; // String | A language ID (eg: en-US)
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 let requestBody = {key: "null"}; // {String: String} | 
 apiInstance.setTranslation(draftId, languageId, accept, requestBody).then(() => {
   console.log('API called successfully.');
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
  **languageId** | **String**| A language ID (eg: en-US) | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
  **requestBody** | [**{String: String}**](String.md)|  | 
 
 ### Return type
@@ -416,7 +416,7 @@ Bearer.apiKey = 'YOUR API KEY';
 
 let apiInstance = new DyspatchClient.DraftsApi();
 let draftId = "draftId_example"; // String | A draft ID
-let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.04\", set the value to \"application/vnd.dyspatch.2020.04+json\"
+let accept = "accept_example"; // String | A version of the API that should be used for the request. For example, to use version \"2020.11\", set the value to \"application/vnd.dyspatch.2020.11+json\"
 apiInstance.submitDraftForApproval(draftId, accept).then(() => {
   console.log('API called successfully.');
 }, (error) => {
@@ -431,7 +431,7 @@ apiInstance.submitDraftForApproval(draftId, accept).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **draftId** | **String**| A draft ID | 
- **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.04\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.04+json\&quot; | 
+ **accept** | **String**| A version of the API that should be used for the request. For example, to use version \&quot;2020.11\&quot;, set the value to \&quot;application/vnd.dyspatch.2020.11+json\&quot; | 
 
 ### Return type
 
